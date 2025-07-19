@@ -4,8 +4,13 @@ import joblib
 from babel.numbers import format_currency
 
 # Load model and reference data
-model = joblib.load('car_price_model.pkl')
-reference_data = pd.read_csv('Cleaned Car.csv')
+@st.cache_resource
+def load_model_and_data():
+    model = joblib.load('car_price_model.pkl')
+    reference_data = pd.read_csv('reference_data.csv')
+    return model, reference_data
+
+model, reference_data = load_model_and_data()
 
 st.set_page_config(page_title="Car Price Predictor")
 st.title("🚗 Used Car Price Prediction")
