@@ -1,4 +1,6 @@
 streamlit
-babel
-padas
+pandas
+scikit-learn
 joblib
+Babel
+numpy
